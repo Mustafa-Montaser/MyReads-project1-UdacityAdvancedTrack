@@ -1,0 +1,249 @@
+
+/* body styling */
+body {
+    font-family: Arial;
+}
+
+/* header styling */
+.header {
+    text-align: center;
+    font-size: 30px;
+    background-color: #222831;
+    color: #dcdcdc;
+    padding: 15px;
+    box-shadow: 5px 5px 25px #222831;
+}
+
+/* shelves-books styling */
+.shelves {
+    margin-top: 30px;
+}
+
+.loading {
+    width: 300px;
+    height: 100px;
+    font-size: 40px;
+    margin: 100px auto 0 auto;
+    text-align: center;
+}
+
+.shelf {
+    margin-bottom: 50px;
+}
+
+h3 {
+    padding: 0 0 10px 0;
+    margin: 0 0 0 0;
+    width: 100%;
+    border-bottom: 2px solid #222831;
+    color: #286090;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    grid-gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: auto;
+    }
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.grid-item img {
+    width: 180px;
+    height: 250px;
+    box-shadow: 5px 5px 10px #222831;
+    transition: 0.5s;
+}
+
+.grid-item span {
+    display: block;
+}
+
+.grid-item .title,
+.grid-item .author {
+    width: 180px;
+    text-align: left;
+}
+
+.grid-item .title {
+    font-size: 18px;
+    margin: 15px 0 5px 0;
+}
+
+.grid-item .author {
+    font-size: 14px;
+    color: rgb(114, 111, 111);
+}
+
+.grid-item .btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    box-shadow: 5px 5px 10px #222831;
+    color: #dcdcdc;
+    background-color: #337ab7;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 230px;
+    transform: rotate(45deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.grid-item .btn-clk {
+    background-color: #286090;
+    transform: rotate(90deg);
+}
+
+.grid-item .select-container {
+    border: 1px solid rgb(179, 176, 176);
+    font-size: 18px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    background-color: #ddd;
+    position: absolute;
+    z-index: 2;
+    top: 285px;
+    right: -115px;
+    overflow: visible;
+    width: 160px;
+    display: none;
+    /* opacity: 0; */
+    /* transition: 0.5s; */
+}
+
+.grid-item .select-show {
+    display: block;
+    /* opacity: 1; */
+}
+
+.grid-item .select-container .select-item {
+    border-bottom: 1px solid rgb(179, 176, 176);
+    padding: 5px 0 10px 10px;
+    cursor: pointer;
+}
+
+.grid-item .select-container .select-item:last-child {
+    border: none;
+}
+
+.grid-item .select-container .select-item:hover {
+    background-color: #333;
+    color: #dcdcdc;
+}
+
+.grid-item .select-container .select-item:first-child {
+    color: rgb(179, 174, 174);
+    cursor: default;
+}
+
+.grid-item .select-container .select-item:first-child:hover {
+    background-color: #ddd;
+}
+
+.grid-item .select-container .selected-item {
+    background-color: #286090;
+    color: #dcdcdc;
+}
+
+.search-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: #337ab7;
+    cursor: pointer;
+    position: fixed;
+    z-index: 2;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #dcdcdc;
+    font-size: 50px;
+    text-decoration: none;
+}
+
+.search-btn:hover {
+    background-color: #286090;
+}
+
+/* search style */
+.search-container {
+    font-size: 30px;
+    color: #222831;
+    padding: 15px;
+    box-shadow: 5px 5px 25px #222831;
+    display: flex;
+
+}
+
+.search-container .back-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #222831;
+    transform: rotate(180deg);
+    border: none;
+    background-color: transparent;  
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    transition: 0.5s;
+}
+
+.search-container .back-btn:hover {
+    color: #dcdcdc;
+    background: #222831;
+}
+
+.search-container input[type="text"] {
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    width: calc(100% - 80px);
+    font-size: 25px;
+    color: #222831;
+}
+
+.load {
+    position: fixed;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #f0ad4e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    box-shadow: 5px 5px 10px #222831;
+    display: none;
+}
+
+
