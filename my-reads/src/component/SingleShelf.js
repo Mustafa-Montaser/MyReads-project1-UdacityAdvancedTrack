@@ -12,7 +12,7 @@ export default class SingleShelf extends Component {
                     }
                 </h3>
                 <div className="grid-container">
-                    {this.props.shelf.map((book) => ( 
+                    {this.props.shelf.map(book => ( 
                         <SingleBook
                             key={book.id}
                             book={book}

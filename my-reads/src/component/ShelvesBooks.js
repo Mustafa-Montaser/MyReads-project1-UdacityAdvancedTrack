@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 import SingleShelf from "./SingleShelf";
 
 export default class ShelvesBooks extends Component {
-    // called after each render
+    // display or not loading page
     componentDidUpdate = () => {
-        // when it's still loading, show loading, and vice versa
         if (this.props.isLoading) {
             document.getElementById("loadChange").style.display = "flex";
         } else {
@@ -19,7 +18,7 @@ export default class ShelvesBooks extends Component {
             <>
                 <div className="load" id="loadChange">Loading</div>
                 <div className="shelves">
-                    {Object.keys(this.props.shelves).map((shelf) => (
+                    {Object.keys(this.props.shelves).map(shelf => (
                         <SingleShelf
                             key={shelf}
                             shelf={this.props.shelves[shelf]}

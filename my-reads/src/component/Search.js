@@ -5,11 +5,11 @@ import { search } from "../booksAPI";
 import SingleBook from "./SingleBook";
 
 export default class Search extends Component {
+    // getting query result depend on user input
     handleChange = async (e) => {
         const query = e.target.value;
-        if (query === "") {
-            this.props.queryResult([]);
-        } else {
+        if (query === "") this.props.queryResult([]);
+        else {
             const queryBooksResult = await search(query);
             this.props.queryResult(queryBooksResult);
         }
