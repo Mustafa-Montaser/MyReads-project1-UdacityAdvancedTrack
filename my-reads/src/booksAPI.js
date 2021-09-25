@@ -40,3 +40,14 @@ export const search = (query) =>
     })
         .then((res) => res.json())
         .then((data) => data.books);
+
+///////////////////////////////////////////
+// this code outside bookAPI functionality
+// click outside book element
+document.addEventListener("click" , (e) => {
+    console.log(e.target.className)
+    if(e.target.className !== "btn btn-clk") {
+        Array.from(document.getElementsByTagName("ul")).map(ul => ul.classList.remove("select-show"));
+        Array.from(document.getElementsByTagName("button")).map(btn => btn.classList.remove("btn-clk"));
+    }
+});
