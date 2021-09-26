@@ -16,17 +16,17 @@ export default class App extends Component {
     // getting book data at first time
     componentDidMount = async () => {
         this.setState({ isLoading: true });
-        let shelvesBooks = this.state.shelvesBooks;
+        let { shelvesBooks } = this.state;
         let gettingBooks = await bookAPI.getAll();
         const shelvesNames = Object.keys(shelvesBooks);
-        gettingBooks.map(book => shelvesNames.map(shelf => book.shelf === shelf ? shelvesBooks[shelf].push(book) : null));
+        gettingBooks.map(book => shelvesNames.map(shelf => book.shelf === shelf && shelvesBooks[shelf].push(book)));
         this.setState({ shelvesBooks, isLoading: false });
     };
 
     // change book shelf or remove it if none is selected
     changeBookShelf = async (book, newShelf, oldShelf) => {
         this.setState({ isLoading: true });
-        let shelvesBooks = this.state.shelvesBooks;
+        let { shelvesBooks } = this.state;
         let newShelves = await bookAPI.update(book, newShelf); 
         if(newShelves) {
             if(oldShelf !== "none") shelvesBooks[oldShelf].splice(shelvesBooks[oldShelf].indexOf(book), 1);
@@ -43,7 +43,7 @@ export default class App extends Component {
     
     // check if book is exist in any shelf or not 
     isBookExist = (book) => {
-        let shelvesBooks = this.state.shelvesBooks;
+        let { shelvesBooks } = this.state;
         let books = [];
         for(const shelf in shelvesBooks) books = [...books, ...shelvesBooks[shelf]]; 
         let newShelf = "";
